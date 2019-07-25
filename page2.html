@@ -1,0 +1,109 @@
+<html>
+<head>
+<title>Page 2</title>
+</head>
+<body>
+<h2 style="text-align:center">COUNTRY DETAILS</h2>
+<table id="myTable" >
+ 
+</table>
+<img id="image1" >
+<a id="ff" >Click HERE to go back to Home Page</a>
+<script>
+ 
+var queryString = decodeURIComponent(window.location.search);
+
+var queries = queryString.split("=");
+var xmlhttp = new XMLHttpRequest();
+xmlhttp.onreadystatechange = function() {
+  if (this.readyState == 4 && this.status == 200) {
+    var myObj = JSON.parse(this.responseText);
+    var table = document.getElementById("myTable");
+   var row = table.insertRow(0);
+   var cell1 = row.insertCell(0);
+    var cell2 = row.insertCell(1);
+  cell1.innerHTML = "Language Name";
+  cell2.innerHTML = myObj[0].languages[0].name;
+   row = table.insertRow(0);
+   cell1 = row.insertCell(0);
+   cell2 = row.insertCell(1);
+  cell1.innerHTML = "Currency Symbol";
+  cell2.innerHTML = myObj[0].currencies[0].symbol;
+   row = table.insertRow(0);
+   cell1 = row.insertCell(0);
+   cell2 = row.insertCell(1);
+  cell1.innerHTML = "Currency Name";
+  cell2.innerHTML = myObj[0].currencies[0].name;
+  row = table.insertRow(0);
+   cell1 = row.insertCell(0);
+   cell2 = row.insertCell(1);
+  cell1.innerHTML = "NativeName";
+  cell2.innerHTML = myObj[0].nativeName;
+  row = table.insertRow(0);
+   cell1 = row.insertCell(0);
+   cell2 = row.insertCell(1);
+  cell1.innerHTML = "Timezones";
+  cell2.innerHTML = myObj[0].timezones;
+  row = table.insertRow(0);
+   cell1 = row.insertCell(0);
+   cell2 = row.insertCell(1);
+  cell1.innerHTML = "Population";
+  cell2.innerHTML = myObj[0].population;
+  row = table.insertRow(0);
+   cell1 = row.insertCell(0);
+   cell2 = row.insertCell(1);
+  cell1.innerHTML = "Area";
+  cell2.innerHTML = myObj[0].area;
+  row = table.insertRow(0);
+   cell1 = row.insertCell(0);
+   cell2 = row.insertCell(1);
+  cell1.innerHTML = "Capital";
+  cell2.innerHTML = myObj[0].capital;
+  row = table.insertRow(0);
+   cell1 = row.insertCell(0);
+   cell2 = row.insertCell(1);
+  cell1.innerHTML = "CallingCodes";
+  cell2.innerHTML = myObj[0].callingCodes;
+  row = table.insertRow(0);
+   cell1 = row.insertCell(0);
+   cell2 = row.insertCell(1);
+  cell1.innerHTML = "Alpha3Code";
+  cell2.innerHTML = myObj[0].alpha3Code;
+  row = table.insertRow(0);
+   cell1 = row.insertCell(0);
+   cell2 = row.insertCell(1);
+  cell1.innerHTML = "Alpha2Code";
+  cell2.innerHTML = myObj[0].alpha2Code;
+  row = table.insertRow(0);
+   cell1 = row.insertCell(0);
+   cell2 = row.insertCell(1);
+  cell1.innerHTML = "Subregion";
+  cell2.innerHTML = myObj[0].subregion;
+  row = table.insertRow(0);
+   cell1 = row.insertCell(0);
+   cell2 = row.insertCell(1);
+  cell1.innerHTML = "Country Region";
+  cell2.innerHTML = myObj[0].region;
+  row = table.insertRow(0);
+   cell1 = row.insertCell(0);
+   cell2 = row.insertCell(1);
+  cell1.innerHTML = "Country Numeric Code";
+  cell2.innerHTML = myObj[0].numericCode;
+  row = table.insertRow(0);
+   cell1 = row.insertCell(0);
+   cell2 = row.insertCell(1);
+  cell1.innerHTML = "Country Name";
+  cell2.innerHTML = myObj[0].name;
+ document.getElementById("ff").href="page1.html";
+
+  }
+};
+xmlhttp.open("GET","https://restcountries.eu/rest/v2/name/"+queries[1] , true);
+xmlhttp.send();
+
+  
+
+ 
+</script> 
+</body>
+</html>
